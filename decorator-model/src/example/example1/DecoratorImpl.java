@@ -18,8 +18,13 @@ public class DecoratorImpl implements Decorator {
         return addFlavoring();
     }
 
+    @Override
+    public boolean getSize() {
+        return base.getSize();
+    }
+
     public int addFlavoring() {
-        int ans = cost + base.decoratedMethod();
+        int ans = cost * (base.getSize() ? 2 : 1) + base.decoratedMethod();
         System.out.println("input " + name + " + " + cost);
         return ans;
     }
